@@ -12,3 +12,30 @@
         text-align: center;
     }
 }
+
+/* Reglementer - Put paragraph sign before each paragramp and put 2em space after each paragraph */
+
+.reglement {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.reglement:first-child {
+    counter-reset: paragraph;
+}
+
+.reglement>li {
+    counter-increment: paragraph;
+    margin-bottom: 2em;
+}
+
+.reglement>li:before {
+    content: "§ " counter(paragraph) ".";
+    float: left;
+    width: 3em;
+    margin-left: -3em;
+} 
+
+.reglement {
+    *list-style-type: decimal; /* targets IE6 and IE7 only */
+}
